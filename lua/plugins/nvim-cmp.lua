@@ -39,5 +39,8 @@ return {
         end
       end, { "i", "s" }),
     })
+    if type(opts.sources) == "table" then
+      vim.list_extend(opts.sources, { name = "orgmode" })
+    end
   end,
 }

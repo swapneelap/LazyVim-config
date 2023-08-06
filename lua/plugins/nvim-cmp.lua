@@ -14,6 +14,12 @@ return {
     local luasnip = require("luasnip")
     local cmp = require("cmp")
 
+    -- do not preselect the first entry from the completion menu
+    opts.preselect = cmp.PreselectMode.None
+    opts.completion = vim.tbl_extend("force", opts.completion, {
+      completeopt = "menu,menuone,noselect,noinsert",
+    })
+
     opts.mapping = vim.tbl_extend("force", opts.mapping, {
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
@@ -38,6 +44,7 @@ return {
           fallback()
         end
       end, { "i", "s" }),
+      ["<CR>"] = cmp.mapping.confirm({ select = false }), -- do not select cmp-source without pressing "tab"
     })
     if type(opts.sources) == "table" then
       vim.list_extend(opts.sources, { name = "orgmode" })

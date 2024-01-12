@@ -8,6 +8,7 @@ return {
       "flake8",
       "python-lsp-server",
       "texlab",
+      "rust-analyzer",
     },
   },
 }

@@ -5,7 +5,7 @@ return {
       "stylua",
       "shellcheck",
       "shfmt",
-      "flake8",
+      "ruff",
       "python-lsp-server",
       "texlab",
     },
